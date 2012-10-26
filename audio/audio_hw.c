@@ -185,13 +185,11 @@ static void select_devices(struct audio_device *adev)
 {
     int headphone_on;
     int speaker_on;
-    int docked;
     int main_mic_on;
 
     headphone_on = adev->out_device & (AUDIO_DEVICE_OUT_WIRED_HEADSET |
                                     AUDIO_DEVICE_OUT_WIRED_HEADPHONE);
     speaker_on = adev->out_device & AUDIO_DEVICE_OUT_SPEAKER;
-    docked = adev->out_device & AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET;
     main_mic_on = adev->in_device & AUDIO_DEVICE_IN_BUILTIN_MIC;
 
     audio_route_reset(adev->ar);
@@ -200,8 +198,6 @@ static void select_devices(struct audio_device *adev)
         audio_route_apply_path(adev->ar, "speaker");
     if (headphone_on)
         audio_route_apply_path(adev->ar, "headphone");
-    if (docked)
-        audio_route_apply_path(adev->ar, "dock");
     if (main_mic_on) {
         if (adev->orientation == ORIENTATION_LANDSCAPE)
             audio_route_apply_path(adev->ar, "main-mic-left");
@@ -211,8 +207,8 @@ static void select_devices(struct audio_device *adev)
 
     audio_route_update_mixer(adev->ar);
 
-    ALOGV("hp=%c speaker=%c dock=%c main-mic=%c", headphone_on ? 'y' : 'n',
-          speaker_on ? 'y' : 'n', docked ? 'y' : 'n', main_mic_on ? 'y' : 'n');
+    ALOGV("hp=%c speaker=%c main-mic=%c", headphone_on ? 'y' : 'n',
+          speaker_on ? 'y' : 'n', main_mic_on ? 'y' : 'n');
 }
 
 /* must be called with hw device and output stream mutexes locked */
