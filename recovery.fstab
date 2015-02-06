@@ -1,0 +1,14 @@
+# mount point	fstype    device    	[device2]
+
+/boot			emmc        /dev/block/platform/sdhci-tegra.3/by-name/LNX
+/cache			ext4        /dev/block/platform/sdhci-tegra.3/by-name/CAC
+/data			ext4        /dev/block/platform/sdhci-tegra.3/by-name/UDA
+/misc			emmc        /dev/block/platform/sdhci-tegra.3/by-name/MSC
+/recovery		emmc        /dev/block/platform/sdhci-tegra.3/by-name/SOS
+/system			ext4        /dev/block/platform/sdhci-tegra.3/by-name/APP
+/staging		emmc        /dev/block/platform/sdhci-tegra.3/by-name/USP
+/metadata		emmc        /dev/block/platform/sdhci-tegra.3/by-name/MDA
+/external_sd	auto        /dev/block/platform/sdhci-tegra.2/by-num/p1
+/sd-ext			auto        /dev/block/platform/sdhci-tegra.2/by-num/p2
+/sdcard			datamedia   /dev/null
+
