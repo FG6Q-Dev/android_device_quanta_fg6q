@@ -1,0 +1,94 @@
+# Azurewave Release 2012/12/14
+# AH663 abgn+bt+FM
+manfid=0x2d0
+prodid=0x0552
+vendid=0x14e4
+devid=0x4360
+boardtype=0x0547
+boardrev=0x18
+# this design has 2.4GHz SP3T switch
+boardflags=0x10080200
+nocrc=1
+xtalfreq=37400
+boardnum=22
+macaddr=00:11:22:33:44:55
+#nvram_override=0
+cckdigfilttype=21
+ag0=255
+aa2g=3
+aa5g=3
+ccode=ALL
+
+#PA parameters for 2.4GHz
+#pa0b0=0x1323
+#pa0b1=0xfda5
+#pa0b2=0xff47
+#rssi params for 2.4GHz
+rssismf2g=0xa
+rssismc2g=0x3
+rssisav2g=0x7
+#rssi params for 5GHz
+rssismf5g=0x4
+rssismc5g=0x3
+rssisav5g=0x7
+#PA parameters for lower a-band CH36~64
+#pa1lob0=0x10a9
+#pa1lob1=0xfdee
+#pa1lob2=0xff3c
+#PA parameters for midband CH100~140
+#pa1b0=0x11f1
+#pa1b1=0xfdb0
+#pa1b2=0xff36
+#PA parameters for high band CH149~165
+#pa1hib0=0x114b
+#pa1hib1=0xfdae
+#pa1hib2=0xff2b
+rxpo5g=0
+sromrev=3
+#il0macaddr=00:11:22:33:44:55
+wl0id=0x431b
+cckPwrOffset=5
+maxp2ga0=0x42
+ofdmdigfilttype2g=4   #0~4 default 2
+ofdmdigfilttype5g=4   #0~4 default 2
+ofdm2gpo=0x22222222
+mcs2gpo0=0x6666
+mcs2gpo1=0x6666
+# 5G Tx Power and offsets
+maxp5ga0=0x36
+maxp5gla0=0x36
+maxp5gha0=0x36
+mcs5gpo0=0x2222
+mcs5gpo1=0x2222
+mcs5glpo0=0x2222
+mcs5glpo1=0x2222
+mcs5ghpo0=0x2222
+mcs5ghpo1=0x2222
+swctrlmap_2g=0x44844484,0x42824282,0x42824282,0x818282,0x1ff
+swctrlmap_5g=0x50905090,0x68a860a0,0x589860a0,0x10202,0x0f8
+rfreg033=0x19
+## TX MASK ##
+rfreg033_cck=0x1f
+
+#pa1itssit=62
+#pa1maxpwr=58
+#pa1lomaxpwr=58
+#pa1himaxpwr=58
+
+dacrate2g=160
+txalpfbyp2g=1
+bphyscale=17
+cckPwrIdxCorr=-15
+pacalidx2g=40
+pacalath2g=195
+#pacalidx2g1=65
+#pacalidx5g=36       #setting 36 for AH663
+txgaintbl=1
+triso2g=0
+triso5g=9
+
+noise_cal_po_5g=5,1,2
+noise_cal_enable_2g=1
+noise_cal_enable_5g=1
+#Enable HW OOB
+muxenab=0x10

@@ -1,3 +1,5 @@
 #
 # system.prop for fg6q
 #
+# don't preload OpenGL in Zygote, the Tegra drivers do not like it
+ro.zygote.disable_gl_preload=true
