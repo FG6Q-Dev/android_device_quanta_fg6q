@@ -6,7 +6,7 @@ Copyright (c) 2011-2013 NVIDIA Corporation.  All Rights Reserved.
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
-import init.nv_dev_board.usb.rc
+import init.macallan.usb.rc
 #import init.${ro.boot.modem}_macallan.rc
 
 on early-init
