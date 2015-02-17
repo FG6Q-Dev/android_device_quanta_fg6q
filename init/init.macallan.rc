@@ -493,7 +493,7 @@ service bdt /system/bin/logwrapper /system/bin/bdt -p
     oneshot
 
 # Customers should remove this line
-import init.qvs.rc
+# import init.qvs.rc
 
 on property:wifi.test_mode=1
     rm /data/misc/wifi/firmware/fw_bcmdhd.bin
@@ -528,7 +528,7 @@ on property:sys.boot_completed=1
 #    oneshot
 
 # various model/sku specific init.rc
-import init.model_specific.rc
+#import init.model_specific.rc
 
 #+++ [QuantaMTP:Eria] Start
 on property:persist.sys.quanta-mtp.enable=1

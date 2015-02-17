@@ -1,21 +1,24 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+
 $(call inherit-product-if-exists, vendor/quanta/fg6q/fg6q-vendor.mk)
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 
 # Root
 PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/fstab.macallan:root/fstab.macallan \
-	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc
+	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc \
+        device/quanta/fg6q/vold.fstab:system/etc/vold.fstab
 
 # Init
 PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/init/init.macallan.rc:root/init.macallan.rc \
 	device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
-	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc
+	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -53,10 +56,14 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/wifi/firmware/bcm4330/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_mfg.bin \
     device/quanta/fg6q/wifi/firmware/bcm4330/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_mfg.bin \
+    device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_apsta.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd.bin:system/vendor/firmware/bcm43241/fw_bcmdhd.bin \
+    device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd.bin \
-    device/quanta/fg6q/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/quanta/fg6q/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/quanta/fg6q/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 # Power
 PRODUCT_COPY_FILES += \
@@ -66,6 +73,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/camera/nvcamera.conf:system/etc/nvcamera.conf \
     device/quanta/fg6q/camera/model_frontal.xml:system/etc/model_frontal.xml
+
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    device/quanta/fg6q/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \

@@ -47,29 +47,13 @@
          based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
                       [# simultaneous connection types]"  -->
-   <string-array translatable="false" name="radioAttributes">
+    <string-array translatable="false" name="radioAttributes">
         <item>1,1</item>
         <item>7,1</item>
-        <item>9,0</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
-
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
-         should be empty. -->
-    <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>"bt-pan"</item>
     </string-array>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
-
-    <!-- Regex of wired ethernet ifaces -->
-    <string translatable="false" name="config_ethernet_iface_regex">(eth|usb)\\d</string>
 
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
@@ -125,15 +109,12 @@
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>300</item>
-        <item>400</item>
-        <item>500</item>
-        <item>650</item>
-        <item>800</item>
-        <item>1000</item>
-        <item>1500</item>
+        <item>120</item>
+        <item>220</item>
+        <item>450</item>
+        <item>700</item>
+        <item>900</item>
+        <item>1400</item>
         <item>2000</item>
         <item>3000</item>
         <item>4000</item>
@@ -142,8 +123,7 @@
         <item>10000</item>
         <item>12500</item>
         <item>15000</item>
-        <item>17500</item>
-        <item>20000</item>
+        <item>18000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -152,27 +132,23 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>11</item>
-        <item>50</item>
-        <item>73</item>
-        <item>93</item>
-        <item>106</item>
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>75</item>
+        <item>90</item>
+        <item>100</item>
         <item>115</item>
-        <item>123</item>
-        <item>135</item>
-        <item>146</item>
-        <item>157</item>
-        <item>203</item>
-        <item>234</item>
-        <item>259</item>
-        <item>270</item>
-        <item>276</item>
-        <item>279</item>
-        <item>283</item>
-        <item>354</item>
-        <item>425</item>
-        <item>496</item>
-        <item>567</item>
+        <item>130</item>
+        <item>145</item>
+        <item>160</item>
+        <item>175</item>
+        <item>190</item>
+        <item>205</item>
+        <item>220</item>
+        <item>235</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -181,10 +157,6 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -227,10 +199,6 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
@@ -255,39 +223,7 @@
         <item>com.android.location.fused</item>
     </string-array>
 
-    <!-- The number of degrees to rotate the display when the keyboard is open.
-         A value of -1 means no change in orientation by default. -->
-    <integer name="config_lidOpenRotation">0</integer>
-
-    <!-- Indicate whether the lid state impacts the accessibility of
-         the physical keyboard.  0 means it doesn't, 1 means it is accessible
-         when the lid is open, 2 means it is accessible when the lid is
-         closed.  The default is 0. -->
-    <integer name="config_lidKeyboardAccessibility">0</integer>
-
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">false</bool>
-
-    <!-- If a dock provides a lid switch, that lid can be removed. This
-         setting is used to determine, whether lidOpenRotation has to be
-         applied. -->
-    <bool name="config_hasRemovableLid">false</bool>
-
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">5</integer>
-
-    <!-- If this is true, the screen will fade off. -->
-    <bool name="config_animateScreenLights">false</bool>
-
-    <!-- Path to the library that contains a device specific key handler -->
-    <!--<string name="config_deviceKeyHandlerLib" translatable="false">/system/framework/com.cyanogenmod.asuspec.jar</string>-->
-
-    <!-- Name of that key handler class -->
-    <!--<string name="config_deviceKeyHandlerClass" translatable="false">com.cyanogenmod.asuspec.KeyHandler</string>-->
-
-    <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
-    <bool name="config_ui_enableFadingMarquee">false</bool>
 
 </resources>
