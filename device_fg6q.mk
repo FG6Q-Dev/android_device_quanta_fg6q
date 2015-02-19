@@ -20,6 +20,11 @@ PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
 	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
 
+# Charger
+PRODUCT_COPY_FILES += \
+	device/quanta/fg6q/charger/charger:root/charger \
+	device/quanta/fg6q/charger/res/images/charger/charge_half.png:root/res/images/charger/charge_half.png
+
 # Media
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/media/media_profiles.xml:system/etc/media_profiles.xml \
@@ -63,7 +68,8 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd.bin \
     device/quanta/fg6q/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     device/quanta/fg6q/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/quanta/fg6q/wifi/wifi_loader.sh:system/bin/wifi_loader.sh
 
 # Power
 PRODUCT_COPY_FILES += \

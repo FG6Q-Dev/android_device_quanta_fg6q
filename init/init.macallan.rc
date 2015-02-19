@@ -236,6 +236,13 @@ service input-cfboost /system/bin/input_cfboost_init.sh
     group root
     oneshot
 
+on charger
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
+    write /sys/class/input/input0/enabled 1
+    write /sys/class/input/input0/enabled 0
+    class_start charger
+
 on property:ro.debuggable=1
     # Invensense interface
     chmod 0666 /sys/class/invensense/mpu/accl_bias
@@ -541,4 +548,8 @@ service mtpserver /system/bin/mtpserver
     class main
     user root
     disabled
+
+service charger /charger
+    class charger
+
 #+++ [QuantaMTP:Eria] Stop

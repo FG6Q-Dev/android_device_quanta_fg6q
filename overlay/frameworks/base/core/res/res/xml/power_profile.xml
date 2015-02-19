@@ -15,28 +15,26 @@
     <item name="gps.on">58.8</item>
     <array name="radio.on">
         <value>0</value>
-	<value>0</value>
-	<value>0</value>
     </array>
     <array name="cpu.speeds">
-	<value>51000</value>
+        <value>51000</value>
         <value>102000</value>
         <value>204000</value>
         <value>304000</value>
-	<value>433898</value>
+        <value>433898</value>
         <value>613195</value>
-	<value>792492</value>
-	<value>817593</value>
+        <value>792492</value>
+        <value>817593</value>
         <value>918000</value>
-	<value>1020000</value>
-	<value>1122000</value>
+        <value>1020000</value>
+        <value>1122000</value>
         <value>1224000</value>
-	<value>1326000</value>
-	<value>1428000</value>
+        <value>1326000</value>
+        <value>1428000</value>
         <value>1530000</value>
-	<value>1606500</value>
+        <value>1606500</value>
         <value>1708500</value>
-	<value>1810500</value>
+        <value>1810500</value>
         <value>1912500</value>
     </array>
     <item name="cpu.idle">0</item>

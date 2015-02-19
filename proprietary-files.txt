@@ -30,6 +30,7 @@ lib/libgov_cores.so
 lib/libgov_cpufs.so
 lib/libgov_gpufs.so
 lib/libgov_tbc.so
+lib/libinvensense_hal.so
 lib/libmllite.so
 lib/libmplmpu.so
 lib/libnvapputil.so
