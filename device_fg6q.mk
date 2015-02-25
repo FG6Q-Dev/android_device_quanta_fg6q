@@ -12,7 +12,6 @@ DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/fstab.macallan:root/fstab.macallan \
 	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc \
-        device/quanta/fg6q/vold.fstab:system/etc/vold.fstab
 
 # Init
 PRODUCT_COPY_FILES += \
