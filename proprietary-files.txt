@@ -1,5 +1,6 @@
 bin/cluster_get.sh
 bin/cluster_set.sh
+bin/glgps_nvidiaTegra2android
 bin/input_cfboost_init.sh
 bin/inv_self_test
 bin/mount_debugfs.sh
@@ -24,7 +25,6 @@ lib/libardrv_dynamic.so
 lib/libaudioavp.so
 lib/libcgdrv.so
 lib/libcplconnectclient.so
-lib/libdrmdecrypt.so
 lib/libgov_combinator.so
 lib/libgov_cores.so
 lib/libgov_cpufs.so
@@ -104,7 +104,6 @@ lib/libtinyalsa.so
 lib/libtsec_wrapper.so
 lib/libtsechdcp.so
 lib/libussrd.so
-lib/libWVphoneAPI.so
 lib/egl/libEGL_tegra_impl.so
 lib/egl/libEGL_tegra.so
 lib/egl/libGLESv1_CM_tegra_impl.so
