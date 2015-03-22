@@ -7,7 +7,19 @@
     <meta name="description" content="CyanogenMod for QV1030/Quanta FG6Q : A Reposity with (hopefully) CM 10.1 for the Gigaset QV1030 aka. Quanta FG6Q">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/spoiler.css">
+    <script type="text/javascript">
+     function spoiler(id){
+      if(document.getElementById(id).style.display=='none') 
+      {
+       document.getElementById(id).style.display=''
+      }
+      else
+      {
+       document.getElementById(id).style.display='none'
+      }
+     }
+    </script>
     <title>CyanogenMod for QV1030/Quanta FG6Q</title>
   </head>
 
@@ -31,7 +43,42 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>Here you will see soon the Links to CM12</p>
+        <p>This Page is dedicated to CM on the Gigaset QV1030 aka. Quanta FG6Q. I will not provide daily buils. If you are pleased with my work, you could donate to me:</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="donate_button">
+         <input type="hidden" name="cmd" value="_s-xclick">
+         <input type="hidden" name="hosted_button_id" value="G6NQS22JR9EJC">
+         <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif" border="0" name="submit">
+            <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        <br />
+        <div class="spoiler">
+         <h4>Note: DISCLAIMER</h4>
+         <p>Modifying or replacing your device's software may void your device's warranty, lead to data loss, hair loss, financial loss, privacy loss, security breaches, dead pets, a thermonuclear war or other damage, and therefore must be done entirely at your own risk. I am not responsible for your actions. Good luck. </p>
+        </div>
+        <h3>What is working?</h3>
+        <ul>
+         <li>Graphics (OpenGL)
+         <li>Sensors(Light, Accelerometer, Gyro)
+         <li>GPS
+         <li>Wlan
+         <li>Access to internal SD (sdcard0)
+         <li>USB (MTP,ADB,HOST,Input Devcies)
+        </ul>
+        <h3>What is NOT working?</h3>
+        <ul>
+         <li>Audio
+         <li>Bluetooth
+         <li>Access to external SD (sdcard1)
+        </ul>
+        <h2>Downloads</h2>
+        <p><a href="https://onedrive.live.com/redir?resid=E84B7BCEDC4458A5%21372">Link to my OneDrive Folder</a></p>
+        <div class="spoiler">
+         <button title="Click to show/hide content" class="button" type="button" onclick="spoiler(20150322)">cm-12-20150322-UNOFFICIAL-fg6q.zip</button>
+          <div id="20150322" style="display:none"> 
+           <p>Initial Commit</p>
+           <p><a href="https://onedrive.live.com/redir?resid=E84B7BCEDC4458A5%21373">Download</a><p>
+         </div> 
+        </div>
       </section>
     </div>
 
