@@ -1,17 +1,26 @@
+DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
+
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
-USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
+BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
+USE_LEGACY_AUDIO_POLICY := 1
+
+# defines to support legacy blobs
+COMMON_GLOBAL_CFLAGS += \
+    -DNEEDS_VECTORIMPL_SYMBOLS \
+    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL
 
 # inherit from the proprietary version
 -include vendor/quanta/fg6q/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := unknown
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a15
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_NO_BOOTLOADER := true
@@ -20,24 +29,27 @@ TARGET_BOARD_PLATFORM := tegra
 TARGET_BOOTLOADER_BOARD_NAME := macallan
 
 # Kernel
-BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_CMDLINE := androidboot.selinux=disabled
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-# Try to build the kernel
+#TARGET_PREBUILT_KERNEL := device/quanta/fg6q/kernel
+
+#Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/quanta/fg6q
 TARGET_KERNEL_CONFIG := cyanogenmod_fg6q_defconfig
 
 # Video
 BOARD_EGL_CFG := device/quanta/fg6q/egl.cfg
 USE_OPENGL_RENDERER := true
-BOARD_HAVE_PIXEL_FORMAT_INFO := true
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
 BOARD_USE_SKIA_LCDTEXT := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 # Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_LARGE_FILESYSTEM := true
 RECOVERY_FSTAB_VERSION := 2
 
@@ -60,10 +72,11 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
 
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/bcm43241/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/bcm43241/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/bcm43241/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/bcm43241/fw_bcmdhd.bin"
+#WIFI_DRIVER_FW_PATH_P2P     := "/system/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin"
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/quanta/fg6q/bluetooth
