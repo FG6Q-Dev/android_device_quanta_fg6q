@@ -126,9 +126,6 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml \
     device/quanta/fg6q/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    persist.sys.usb.config=mtp
-
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     ap.interface=wlan1 \
@@ -138,7 +135,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.render_dirty_regions=false \
     persist.tegra.nvmmlite = 1 \
     drm.service.enabled=true \
-    tf.enable=y
+    tf.enable=y \
+    ro.opengles.version=131072 \
+    fw.max_users=3 \
+    fw.show_multiuserui=1 \
+    persist.sys.usb.config=mtp
 
 # Audio
 PRODUCT_PACKAGES += \
