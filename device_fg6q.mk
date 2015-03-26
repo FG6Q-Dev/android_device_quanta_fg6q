@@ -11,8 +11,7 @@ DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 # Root
 PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/fstab.macallan:root/fstab.macallan \
-	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc \
-        device/quanta/fg6q/vold.fstab:system/etc/vold.fstab
+	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -33,8 +32,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/quanta/fg6q/gps/gpsconfig.xml:system/etc/gpsconfig.xml \
-    device/quanta/fg6q/gps/libgps.conf:system/etc/libgps.conf \
+    device/quanta/fg6q/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     device/quanta/fg6q/gps/gps.conf:system/etc/gps.conf
 
 # Audio
@@ -44,10 +42,6 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/audio/audio_policy.conf:system/etc/audio_policy.conf \
     device/quanta/fg6q/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     device/quanta/fg6q/audio/firmware/es305_fw.bin:system/vendor/firmware/es305_fw.bin
-
-# Audio override
-PRODUCT_COPY_FILES_OVERRIDES := \
-    system/etc/audio_effects.conf
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -66,10 +60,15 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd.bin \
-    device/quanta/fg6q/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/quanta/fg6q/wifi/wifi_loader.sh:system/bin/wifi_loader.sh \
     device/quanta/fg6q/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/quanta/fg6q/wifi/wifi_loader.sh:system/bin/wifi_loader.sh
+    device/quanta/fg6q/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+
+
+PRODUCT_PACKAGES += \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Power
 PRODUCT_COPY_FILES += \
@@ -83,6 +82,13 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
+
+# IDC
+PRODUCT_COPY_FILES += \
+    device/quanta/fg6q/idc/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
+    device/quanta/fg6q/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc
+
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -120,7 +126,7 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml \
     device/quanta/fg6q/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -141,30 +147,12 @@ PRODUCT_PACKAGES += \
         audio.r_submix.default \
         libaudioutils
 
-# Misc
-PRODUCT_PACKAGES += \
-    librs_jni \
-    com.android.future.usb.accessory \
-    libnetcmdiface \
-    WiFiDirectDemo
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
        make_ext4fs \
        setup_fs
 
-
-# Only a kernel from open sources is a happy kernel!
-#LOCAL_PATH := device/quanta/fg6q
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-#else
-#	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
-#
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_KERNEL):kernel
-
+$(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
 
