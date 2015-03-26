@@ -10,7 +10,8 @@ USE_LEGACY_AUDIO_POLICY := 1
 # defines to support legacy blobs
 COMMON_GLOBAL_CFLAGS += \
     -DNEEDS_VECTORIMPL_SYMBOLS \
-    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL
+    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
+    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # inherit from the proprietary version
 -include vendor/quanta/fg6q/BoardConfigVendor.mk
