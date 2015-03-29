@@ -61,18 +61,31 @@
         <li>Sensors(Light, Accelerometer, Gyro)
         <li>GPS
         <li>Wlan
-        <li>Access to internal SD (sdcard0)
+        <li>Access to internal and external SD (sdcard0&sdcard1)
         <li>USB (MTP,ADB,HOST,Input Devcies)
         <li>Audio
        </ul>
+       <h3>What is PARTIAL working?</h3>
+        <li>Bluetooth, some features work (file transfer for exp.), some don´t (audio is faulty for exp.)
        <h3>What is NOT working?</h3>
        <ul>
-        <li>Bluetooth
-        <li>Access to external SD (sdcard1)
+        <li>USB (Logcat says yes, Userspace says no, so not accessible)
+        <li>Vibrator/Vibrations
        </ul>
        <h2>Downloads</h2>
        <p><a href="https://onedrive.live.com/redir?resid=E84B7BCEDC4458A5%21372">Link to my OneDrive Folder</a></p>
        <div class="spoiler">
+        <button title="Click to show/hide content" class="button" type="button" onclick="spoiler(20150328)">cm-12-20150328-UNOFFICIAL-fg6q.zip</button>
+        <div id="20150328" style="display:none"> 
+         <ul>
+          <li>Fixed a Problem, where Some PlayStore Apps didnt show up (Thanks to tiefensuche <a href="http://www.android-hilfe.de/gigaset-qv1030-forum/672949-rom-5-0-2-cyanogenmod-12-alpha.html">@AH.de</a>)
+          <li>Integrated Multi-User Support (Thanks to RoooNY <a href="http://www.android-hilfe.de/gigaset-qv1030-forum/672949-rom-5-0-2-cyanogenmod-12-alpha.html">@AH.de</a>)
+          <li>Mounted /mfg, so that Wlan is working with the correct region (Enabled Channel 12&13 for Europe)
+          <li>/sdcard1 is mounting now correctly & accessible
+         </ul>
+         <p><a href="https://onedrive.live.com/redir?resid=E84B7BCEDC4458A5%21377">Download</a><p>
+        </div>
+        <br /><br />
         <button title="Click to show/hide content" class="button" type="button" onclick="spoiler(20150324)">cm-12-20150324-UNOFFICIAL-fg6q.zip</button>
         <div id="20150324" style="display:none"> 
          <p>Fixed the non-working audio</p>
