@@ -242,7 +242,8 @@ on charger
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
     write /sys/class/input/input0/enabled 1
     write /sys/class/input/input0/enabled 0
-    class_start charger
+    start chargerservice
+#    class_start charger
 
 on property:ro.debuggable=1
     # Invensense interface
@@ -530,13 +531,13 @@ on property:wifi.test_mode=0
     rm /data/misc/wifi/firmware/fw_bcmdhd.bin
     symlink /data/misc/wifi/firmware/fw_bcmdhd_non_mfg.bin /data/misc/wifi/firmware/fw_bcmdhd.bin
 
-service sv_bootaudio /system/bin/bootaudio
-    user system
-    disabled
-    oneshot
+#service sv_bootaudio /system/bin/bootaudio
+#    user system
+#    disabled
+#    oneshot
 
-on property:init.svc.bootanim=running
-    start sv_bootaudio
+#on property:init.svc.bootanim=running
+#    start sv_bootaudio
 #	start touch_fw_update
 
 # PP3N DNP
@@ -569,7 +570,7 @@ service mtpserver /system/bin/mtpserver
     user root
     disabled
 
-service charger /charger
-    class charger
+service chargerservice /charger
+#    class charger
 
 #+++ [QuantaMTP:Eria] Stop
