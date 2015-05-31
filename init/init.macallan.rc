@@ -446,10 +446,10 @@ service ussr_setup /system/bin/ussr_setup.sh
     oneshot
 
 # unified scaling process
-service ussrd /system/bin/ussrd
-    user system
-    group system
-    class main
+#service ussrd /system/bin/ussrd
+#    user system
+#    group system
+#    class main
 
 # unified scaling watchdog process
 service usdwatchdog /system/bin/usdwatchdog --wait 30
