@@ -149,6 +149,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     fw.show_multiuserui=1 \
     persist.sys.usb.config=mtp
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.isUsbOtgEnabled=1
+
 # Audio
 PRODUCT_PACKAGES += \
         audio.a2dp.default \
