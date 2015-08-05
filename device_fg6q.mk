@@ -100,13 +100,10 @@ PRODUCT_COPY_FILES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
+    device/quanta/fg6q/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
+    device/quanta/fg6q/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/quanta/fg6q/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/quanta/fg6q/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl
-
-# Keylayout overrides
-PRODUCT_COPY_FILES_OVERRIDES += \
-    system/usr/keylayout/AVRCP.kl \
-    system/usr/keylayout/Generic.kl
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -146,11 +143,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     tf.enable=y \
     ro.opengles.version=131072 \
     fw.max_users=3 \
-    fw.show_multiuserui=1 \
-    persist.sys.usb.config=mtp
+    fw.show_multiuserui=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=1
+    persist.sys.isUsbOtgEnabled=1 \
+    persist.sys.usb.config=mtp,adb \
+    persist.service.adb.enable=1
 
 # Audio
 PRODUCT_PACKAGES += \

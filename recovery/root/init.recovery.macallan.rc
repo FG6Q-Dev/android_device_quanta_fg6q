@@ -1,0 +1,3 @@
+on boot
+    chown system system /sys/class/input/input0/enabled
+    write /sys/class/input/input0/enabled 1
