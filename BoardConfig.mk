@@ -44,19 +44,21 @@ TARGET_KERNEL_CONFIG := cyanogenmod_fg6q_defconfig
 BOARD_EGL_CFG := device/quanta/fg6q/egl.cfg
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-VSYNC_EVENT_PHASE_OFFSET_NS := 0
-SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1
+VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-# Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+# Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 RECOVERY_FSTAB_VERSION := 2
 
 # TWRP
-#TARGET_KERNEL_CONFIG := recovery_fg6q_defconfig
-#RECOVERY_VARIANT := twrp
+ifeq ($(TARGET_BUILD_VARIANT), eng)
+    TARGET_KERNEL_CONFIG := recovery_fg6q_defconfig
+    RECOVERY_VARIANT := twrp
+endif
 DEVICE_RESOLUTION := 2560x1600
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
