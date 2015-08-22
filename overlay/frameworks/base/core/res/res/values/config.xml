@@ -252,4 +252,7 @@
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">5</integer>
 
+    <!-- Performance profiles -->
+    <string name="config_perf_profile_prop">persist.sys.power_profile</string>
+    <string name="config_perf_profile_default_entry">1</string>
 </resources>

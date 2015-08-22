@@ -1,0 +1,54 @@
+diff --git a/media/java/android/media/AudioService.java b/media/java/android/media/AudioService.java
+index 7a84723..c19381a 100644
+--- a/media/java/android/media/AudioService.java
++++ b/media/java/android/media/AudioService.java
+@@ -273,29 +273,29 @@ public class AudioService extends IAudioService.Stub {
+ 
+    /** @hide Maximum volume index values for audio streams */
+     private static int[] MAX_STREAM_VOLUME = new int[] {
+-        5,  // STREAM_VOICE_CALL
+-        7,  // STREAM_SYSTEM
+-        7,  // STREAM_RING
+-        15, // STREAM_MUSIC
+-        7,  // STREAM_ALARM
+-        7,  // STREAM_NOTIFICATION
+-        15, // STREAM_BLUETOOTH_SCO
+-        7,  // STREAM_SYSTEM_ENFORCED
+-        15, // STREAM_DTMF
+-        15  // STREAM_TTS
++        50,  // STREAM_VOICE_CALL
++        70,  // STREAM_SYSTEM
++        70,  // STREAM_RING
++        150, // STREAM_MUSIC
++        70,  // STREAM_ALARM
++        70,  // STREAM_NOTIFICATION
++        150, // STREAM_BLUETOOTH_SCO
++        70,  // STREAM_SYSTEM_ENFORCED
++        150, // STREAM_DTMF
++        150  // STREAM_TTS
+     };
+ 
+     private static int[] DEFAULT_STREAM_VOLUME = new int[] {
+-        4,  // STREAM_VOICE_CALL
+-        7,  // STREAM_SYSTEM
+-        5,  // STREAM_RING
+-        11, // STREAM_MUSIC
+-        6,  // STREAM_ALARM
+-        5,  // STREAM_NOTIFICATION
+-        7,  // STREAM_BLUETOOTH_SCO
+-        7,  // STREAM_SYSTEM_ENFORCED
+-        11, // STREAM_DTMF
+-        11  // STREAM_TTS
++        40,  // STREAM_VOICE_CALL
++        70,  // STREAM_SYSTEM
++        50,  // STREAM_RING
++        110, // STREAM_MUSIC
++        60,  // STREAM_ALARM
++        50,  // STREAM_NOTIFICATION
++        70,  // STREAM_BLUETOOTH_SCO
++        70,  // STREAM_SYSTEM_ENFORCED
++        110, // STREAM_DTMF
++        110  // STREAM_TTS
+     };
+ 
+     /* mStreamVolumeAlias[] indicates for each stream if it uses the volume settings

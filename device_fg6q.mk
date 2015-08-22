@@ -150,15 +150,19 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-        audio.a2dp.default \
-        audio.usb.default \
-        audio.r_submix.default \
-        libaudioutils
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    libaudioutils
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-       make_ext4fs \
-       setup_fs
+    make_ext4fs \
+    setup_fs
+
+# Power management
+PRODUCT_PACKAGES += \
+    NvCPLSvc
 
 $(call inherit-product, build/target/product/full.mk)
 

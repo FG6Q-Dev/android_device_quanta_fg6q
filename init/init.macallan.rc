@@ -574,3 +574,19 @@ service chargerservice /charger
 #    class charger
 
 #+++ [QuantaMTP:Eria] Stop
+
+# Performance profiles
+service nv_power /system/bin/power_mode.sh
+    user system
+    group system
+    oneshot
+    disabled
+
+on property:persist.sys.power_profile=0
+    start nv_power
+
+on property:persist.sys.power_profile=1
+    start nv_power
+
+on property:persist.sys.power_profile=2
+    start nv_power

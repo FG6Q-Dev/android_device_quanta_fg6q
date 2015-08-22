@@ -1,0 +1,45 @@
+diff --git a/services/core/java/com/android/server/pm/PackageManagerService.java b/services/core/java/com/android/server/pm/PackageManagerService.java
+index f712eb7..31bcf0c 100755
+--- a/services/core/java/com/android/server/pm/PackageManagerService.java
++++ b/services/core/java/com/android/server/pm/PackageManagerService.java
+@@ -3026,39 +3026,7 @@ public class PackageManagerService extends IPackageManager.Stub {
+      */
+     private int compareSignaturesCompat(PackageSignatures existingSigs,
+             PackageParser.Package scannedPkg) {
+-        if (!isCompatSignatureUpdateNeeded(scannedPkg)) {
+-            return PackageManager.SIGNATURE_NO_MATCH;
+-        }
+-
+-        ArraySet<Signature> existingSet = new ArraySet<Signature>();
+-        for (Signature sig : existingSigs.mSignatures) {
+-            existingSet.add(sig);
+-        }
+-        ArraySet<Signature> scannedCompatSet = new ArraySet<Signature>();
+-        for (Signature sig : scannedPkg.mSignatures) {
+-            try {
+-                Signature[] chainSignatures = sig.getChainSignatures();
+-                for (Signature chainSig : chainSignatures) {
+-                    scannedCompatSet.add(chainSig);
+-                }
+-            } catch (CertificateEncodingException e) {
+-                scannedCompatSet.add(sig);
+-            }
+-        }
+-        /*
+-         * Make sure the expanded scanned set contains all signatures in the
+-         * existing one.
+-         */
+-        if (scannedCompatSet.equals(existingSet)) {
+-            // Migrate the old signatures to the new scheme.
+-            existingSigs.assignSignatures(scannedPkg.mSignatures);
+-            // The new KeySets will be re-added later in the scanning process.
+-            synchronized (mPackages) {
+-                mSettings.mKeySetManagerService.removeAppKeySetDataLPw(scannedPkg.packageName);
+-            }
+-            return PackageManager.SIGNATURE_MATCH;
+-        }
+-        return PackageManager.SIGNATURE_NO_MATCH;
++        return PackageManager.SIGNATURE_MATCH;
+     }
+ 
+     private boolean isRecoverSignatureUpdateNeeded(PackageParser.Package scannedPkg) {
