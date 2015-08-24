@@ -15,6 +15,7 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_COPY_FILES += \
+	device/quanta/fg6q/init/init.hdcp.rc:root/init.hdcp.rc \
 	device/quanta/fg6q/init/init.macallan.rc:root/init.macallan.rc \
 	device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
 	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
@@ -124,10 +125,10 @@ PRODUCT_COPY_FILES += \
 
 # Quanta
 PRODUCT_COPY_FILES += \
-    device/quanta/fg6q/permissions/com.nvidia.graphics.xml:system/etc/permissions/com.nvidia.graphics.xml \
-    device/quanta/fg6q/permissions/com.nvidia.miracast.xml:system/etc/permissions/com.nvidia.miracast.xml \
-    device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml \
-    device/quanta/fg6q/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
+    device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
+#    device/quanta/fg6q/permissions/com.nvidia.graphics.xml:system/etc/permissions/com.nvidia.graphics.xml \
+#    device/quanta/fg6q/permissions/com.nvidia.miracast.xml:system/etc/permissions/com.nvidia.miracast.xml \
+#    device/quanta/fg6q/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \

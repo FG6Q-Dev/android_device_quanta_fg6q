@@ -36,11 +36,11 @@ NV_MAX_CORES 0 0 2
 /sys/class/graphics/fb0/device/smartdimmer/aggressiveness 29 29 29
 /sys/class/graphics/fb0/device/smartdimmer/enable 0 0 0
 panelresolution=2560X1600
-NV_FPSLIMIT 0 30 30
+NV_FPSLIMIT 0 60 30
 NV_MAX_CORES 0 0 2
-/sys/module/cpu_tegra/parameters/cpu_user_cap 0 1000000 1000000
-/sys/class/graphics/fb0/device/smartdimmer/aggressiveness 29 29 29
-/sys/class/graphics/fb0/device/smartdimmer/enable 0 0 0
+/sys/module/cpu_tegra/parameters/cpu_user_cap 0 1300000 1000000
+/sys/class/graphics/fb0/device/smartdimmer/aggressiveness 27 27 29
+/sys/class/graphics/fb0/device/smartdimmer/enable 1 1 1
 panelresolution=-1X-1
 NV_FPSLIMIT 0 30 30
 NV_MAX_CORES 0 0 2

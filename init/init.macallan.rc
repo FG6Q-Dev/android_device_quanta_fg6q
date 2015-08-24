@@ -590,3 +590,6 @@ on property:persist.sys.power_profile=1
 
 on property:persist.sys.power_profile=2
     start nv_power
+
+# Set up HDCP
+    import init.hdcp.rc
