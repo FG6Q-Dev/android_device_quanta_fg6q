@@ -92,9 +92,6 @@
                cell broadcasting sms, and MMS. -->
     <bool name="config_sms_capable">false</bool>
 
-    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-    <bool name="config_cellBroadcastAppLinks">false</bool>
-
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
@@ -229,25 +226,6 @@
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <!-- Package name(s) containing location provider support.
-         These packages can contain services implementing location providers,
-         such as the Geocode Provider, Network Location Provider, and
-         Fused Location Provider. They will each be searched for
-         service components implementing these providers.
-         It is strongly recommended that the packages explicitly named
-         below are on the system image, so that they will not map to
-         a 3rd party application.
-         The location framework also has support for installation
-         of new location providers at run-time. The new package does not
-         have to be explicitly listed here, however it must have a signature
-         that matches the signature of at least one package on this list.
-         -->
-    <string-array name="config_locationProviderPackageNames" translatable="false">
-        <item>com.google.android.gms</item>
-        <!-- The standard AOSP fused location provider -->
-        <item>com.android.location.fused</item>
-    </string-array>
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">5</integer>
