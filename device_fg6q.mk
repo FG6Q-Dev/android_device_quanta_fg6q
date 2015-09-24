@@ -141,9 +141,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.tegra.nvmmlite = 1 \
     drm.service.enabled=true \
     tf.enable=y \
-    ro.opengles.version=131072 \
-    fw.max_users=3 \
-    fw.show_multiuserui=1
+    ro.opengles.version=131072
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=1 \
