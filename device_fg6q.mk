@@ -20,13 +20,10 @@ PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
 	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
 
-## Charger
+# Charger
 PRODUCT_COPY_FILES += \
 	device/quanta/fg6q/charger/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png \
 	device/quanta/fg6q/charger/res/images/charger/battery_scale.png:root/res/images/charger/battery_scale.png
-#	device/quanta/fg6q/charger/charger:root/charger \
-#	device/quanta/fg6q/charger/res/images/charger/charge_half.png:root/res/images/charger/charge_half.png
-
 
 # Media
 PRODUCT_COPY_FILES += \
