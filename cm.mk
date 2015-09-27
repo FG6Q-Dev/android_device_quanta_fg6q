@@ -17,3 +17,6 @@ PRODUCT_NAME := cm_fg6q
 PRODUCT_BRAND := quanta
 PRODUCT_MODEL := Gigaset QV1030
 PRODUCT_MANUFACTURER := quanta
+
+# device specific settings menu supported by CM
+BOARD_HARDWARE_CLASS := device/quanta/fg6q/cmhw/
