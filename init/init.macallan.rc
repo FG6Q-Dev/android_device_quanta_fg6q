@@ -416,10 +416,10 @@ service nvcpud /system/bin/nvcpud
     oneshot
 
 # Enable PowerService
-    service powerservice /system/bin/powerservice
-    class main
-    user system
-    group system
+#    service powerservice /system/bin/powerservice
+#    class main
+#    user system
+#    group system
 
 #Modem
 #service ril-daemon /system/bin/rild -l libhuawei-ril.so
@@ -446,10 +446,10 @@ service ussr_setup /system/bin/ussr_setup.sh
     oneshot
 
 # unified scaling process
-#service ussrd /system/bin/ussrd
-#    user system
-#    group system
-#    class main
+service ussrd /system/bin/ussrd
+    user system
+    group system
+    class main
 
 # unified scaling watchdog process
 service usdwatchdog /system/bin/usdwatchdog --wait 30
