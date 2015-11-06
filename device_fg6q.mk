@@ -127,9 +127,6 @@ PRODUCT_COPY_FILES += \
 # Quanta
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
-#    device/quanta/fg6q/permissions/com.nvidia.graphics.xml:system/etc/permissions/com.nvidia.graphics.xml \
-#    device/quanta/fg6q/permissions/com.nvidia.miracast.xml:system/etc/permissions/com.nvidia.miracast.xml \
-#    device/quanta/fg6q/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
