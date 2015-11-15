@@ -234,8 +234,8 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <!-- Performance profiles -->
-    <string name="config_perf_profile_prop">persist.sys.power_profile</string>
-    <string name="config_perf_profile_default_entry">2</string>
+    <!--string name="config_perf_profile_prop">persist.sys.power_profile</string>
+    <string name="config_perf_profile_default_entry">2</string-->
 
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
