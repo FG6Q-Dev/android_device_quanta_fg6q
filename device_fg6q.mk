@@ -157,9 +157,23 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# Power management
+# OSS HW Modules
 PRODUCT_PACKAGES += \
-    NvCPLSvc
+    lights.macallan \
+    #power.macallan
+
+# Closed Source Modules
+PRODUCT_COPY_FILES += \
+    device/quanta/fg6q/prebuilts/power.macallan.so:system/vendor/lib/hw/power.macallan.so \
+    device/quanta/fg6q/prebuilts/camera.tegra.so:system/lib/hw/camera.tegra.so \
+    device/quanta/fg6q/prebuilts/libnvmm_camera.so:system/vendor/lib/libnvmm_camera.so \
+    device/quanta/fg6q/prebuilts/libnvodm_imager.so:system/vendor/lib/libnvodm_imager.so \
+    device/quanta/fg6q/prebuilts/libnvodm_query.so:system/vendor/lib/libnvodm_query.so \
+    device/quanta/fg6q/prebuilts/sensors.macallan.so:system/lib/hw/sensors.macallan.so \
+    device/quanta/fg6q/prebuilts/libinvensense_hal.so:system/lib/libinvensense_hal.so \
+    device/quanta/fg6q/prebuilts/libmplmpu.so:system/lib/libmplmpu.so \
+    device/quanta/fg6q/prebuilts/libmllite.so:system/lib/libmllite.so \
+
 
 $(call inherit-product, build/target/product/full.mk)
 
