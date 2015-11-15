@@ -3,9 +3,6 @@ DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 BOARD_USES_GENERIC_AUDIO := false
-BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
-BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
-USE_LEGACY_AUDIO_POLICY := 1
 
 # defines to support legacy blobs
 COMMON_GLOBAL_CFLAGS += \
