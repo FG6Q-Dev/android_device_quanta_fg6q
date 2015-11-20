@@ -128,23 +128,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    ap.interface=wlan1 \
-    ro.carrier=wifi-only \
-    ro.sf.override_null_lcd_density = 1 \
-    persist.tegra.compositor=glcomposer \
-    debug.hwui.render_dirty_regions=false \
-    persist.tegra.nvmmlite = 1 \
-    drm.service.enabled=true \
-    tf.enable=y \
-    ro.opengles.version=131072
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=1 \
-    persist.sys.usb.config=mtp,adb \
-    persist.service.adb.enable=1
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

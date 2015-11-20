@@ -1,5 +1,43 @@
-#
-# system.prop for fg6q
-#
+# Graphic
+persist.tegra.nvmmlite = 1
+ro.opengles.version=131072
+ro.sf.override_null_lcd_density = 1
+ro.sf.lcd_density = 320 
+
 # don't preload OpenGL in Zygote, the Tegra drivers do not like it
 ro.zygote.disable_gl_preload=true
+
+# use glcomposer as the default compositor
+persist.tegra.compositor=glcomposer
+
+# disable EGL_BUFFER_PRESERVED extension for OpenGLRenderer
+debug.hwui.render_dirty_regions=false
+
+# hwui parameters
+ro.hwui.texture_cache_size=72.0
+ro.hwui.layer_cache_size=48.0
+ro.hwui.gradient_cache_size=1.0
+ro.hwui.path_cache_size=40.0
+ro.hwui.shape_cache_size=5.0
+ro.hwui.drop_shadow_cache_size=6.0
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+ro.hwui.texture_cache_flushrate=0.4
+
+# Wlan
+wifi.interface=wlan0
+ap.interface=wlan0
+ro.carrier=wifi-only
+
+# USB Settings
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+persist.sys.isUsbOtgEnabled=1
+
+# Widevine drm
+drm.service.enabled=true
+
+# Other
+tf.enable=y
