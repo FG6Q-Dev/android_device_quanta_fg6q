@@ -124,6 +124,9 @@ vendor/lib/libnvmm_utils.so
 vendor/lib/libnvmm_video.so
 vendor/lib/libnvmm_writer.so
 
+# Nvidia Bins
+vendor/bin/nvcgcserver
+vendor/bin/nv_hciattach
 
 # Need this till open source replacement from QV1030
 #lib/libinvensense_hal.so
@@ -142,9 +145,7 @@ vendor/lib/libnvmm_writer.so
 #bin/input_cfboost_init.sh
 #bin/inv_self_test
 #bin/mount_debugfs.sh
-#bin/nv_hciattach
 #bin/nvcap_test
-#bin/nvcgcserver
 #bin/nvtest
 #bin/powerservice
 #bin/set_hwui_params.sh
