@@ -19,13 +19,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <sys/socket.h>
-#include <cutils/uevent.h>
-#include <sys/poll.h>
-#include <pthread.h>
-#include <linux/netlink.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
 #define LOG_TAG "Macallan PowerHAL"
 #include <utils/Log.h>
@@ -86,6 +79,7 @@ static void macallan_power_set_interactive(struct power_module *module, int on)
 		}
 		i++;
     }
+	sysfs_write("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",(on == 0)?"conservative":"interactive");
 }
 
 static void macallan_power_hint(struct power_module *module, power_hint_t hint, void *data)
