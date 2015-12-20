@@ -49,37 +49,42 @@ static int sysfs_write(char *path, char *s)
     return 0;
 }
 
+static void toggle_input(int on)
+{
+    int i = 0;
+    int ret;
+    char path[80];
+    const char* state = (0 == on)?"0":"1";
+    
+    while(1)
+    {
+        sprintf(path, "/sys/class/input/input%d/enabled", i);
+        ret = access(path, F_OK);
+        if (ret < 0) {
+            ALOGI("Breaked at device id:%d", i);
+            break;
+        }
+        else {
+            if (0 == on) {
+                ALOGI("Disabling input device:%d", i);
+            }
+            else {
+                ALOGI("Enabling input device:%d", i);
+            }
+            sysfs_write(path, state);
+        }
+        i++;
+    }
+}
+
 static void macallan_power_init(struct power_module *module)
 {
 }
 
 static void macallan_power_set_interactive(struct power_module *module, int on)
 {
-	int i = 0;
-    int ret;
-    char path[80];
-	const char* state = (0 == on)?"0":"1";
-    
-	while(1)
-    {
-        sprintf(path, "/sys/class/input/input%d/enabled", i);
-		ret = access(path, F_OK);
-        if (ret < 0) {
-			ALOGI("Breaked at device id:%d", i);
-			break;
-		}
-        else {
-			if (0 == on) {
-				ALOGI("Disabling input device:%d", i);
-			}
-			else {
-				ALOGI("Enabling input device:%d", i);
-			}
-			sysfs_write(path, state);
-		}
-		i++;
-    }
-	sysfs_write("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",(on == 0)?"conservative":"interactive");
+    toggle_input(on);
+    sysfs_write("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",(on == 0)?"conservative":"interactive");
 }
 
 static void macallan_power_hint(struct power_module *module, power_hint_t hint, void *data)
