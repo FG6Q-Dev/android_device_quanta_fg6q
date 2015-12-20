@@ -79,6 +79,15 @@ static void toggle_input(int on)
 
 static void macallan_power_init(struct power_module *module)
 {
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate","20000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_slack","80000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time","30000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq","696000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load","99");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/target_loads","75 228000:85 696000:90 1530000:95");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay","20000 1530000:50000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration","30000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/io_is_busy", "0");
 }
 
 static void macallan_power_set_interactive(struct power_module *module, int on)
