@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2012 The Android Open Source Project
  * Copyright (c) 2012-2014, NVIDIA CORPORATION.  All rights reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,12 +19,30 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <stdbool.h>
 
 #define LOG_TAG "Macallan PowerHAL"
 #include <utils/Log.h>
  
 #include <hardware/hardware.h>
 #include <hardware/power.h>
+
+#define CPU_MAX_FREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"
+#define IO_IS_BUSY_PATH "/sys/devices/system/cpu/cpufreq/interactive/io_is_busy"
+#define LOW_POWER_MAX_FREQ "918000"
+#define NORMAL_MAX_FREQ "1810500"
+
+static bool low_power_mode = false;
+
+static char *max_cpu_freq = NORMAL_MAX_FREQ;
+static char *low_power_max_cpu_freq = LOW_POWER_MAX_FREQ;
+
+struct macallan_power_module {
+    struct power_module base;
+    pthread_mutex_t lock;
+    int boostpulse_fd;
+    int boostpulse_warned;
+};
 
 static int sysfs_write(char *path, char *s)
 {
@@ -92,12 +110,35 @@ static void macallan_power_init(struct power_module *module)
 
 static void macallan_power_set_interactive(struct power_module *module, int on)
 {
+    /*
+     * Lower maximum frequency when screen is off.
+     */
+    sysfs_write(CPU_MAX_FREQ_PATH,(!on || low_power_mode) ? low_power_max_cpu_freq : max_cpu_freq);
+    sysfs_write(IO_IS_BUSY_PATH, on ? "1" : "0");
     toggle_input(on);
-    sysfs_write("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",(on == 0)?"conservative":"interactive");
 }
 
 static void macallan_power_hint(struct power_module *module, power_hint_t hint, void *data)
 {
+    struct macallan_power_module *macallan = (struct macallan_power_module *) module;
+    switch (hint) {
+        case POWER_HINT_VSYNC:
+            break;
+        case POWER_HINT_INTERACTION:
+            break;
+        case POWER_HINT_LOW_POWER:
+            pthread_mutex_lock(&macallan->lock);
+            if (data) {
+                sysfs_write(CPU_MAX_FREQ_PATH, low_power_max_cpu_freq);
+            } else {
+                sysfs_write(CPU_MAX_FREQ_PATH, max_cpu_freq);
+            }
+            low_power_mode = data;
+            pthread_mutex_unlock(&macallan->lock);
+            break;
+        default:
+            break;
+    }
 }
 
 static struct hw_module_methods_t power_module_methods = {
