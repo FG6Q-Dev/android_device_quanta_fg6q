@@ -19,6 +19,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 #define LOG_TAG "Macallan PowerHAL"
@@ -145,18 +147,23 @@ static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
 };
 
-struct power_module HAL_MODULE_INFO_SYM = {
-    .common = {
-        .tag = HARDWARE_MODULE_TAG,
-        .module_api_version = POWER_MODULE_API_VERSION_0_2,
-        .hal_api_version = HARDWARE_HAL_API_VERSION,
-        .id = POWER_HARDWARE_MODULE_ID,
-        .name = "Macallan Power HAL",
-        .author = "Spartaner25",
-        .methods = &power_module_methods,
-    },
+struct macallan_power_module HAL_MODULE_INFO_SYM = {
+    .base = {
+        .common = {
+            .tag = HARDWARE_MODULE_TAG,
+            .module_api_version = POWER_MODULE_API_VERSION_0_2,
+            .hal_api_version = HARDWARE_HAL_API_VERSION,
+            .id = POWER_HARDWARE_MODULE_ID,
+            .name = "Macallan Power HAL",
+            .author = "Spartaner25",
+            .methods = &power_module_methods,
+        },
 
-    .init = macallan_power_init,
-    .setInteractive = macallan_power_set_interactive,
-    .powerHint = macallan_power_hint,
+        .init = macallan_power_init,
+        .setInteractive = macallan_power_set_interactive,
+        .powerHint = macallan_power_hint,
+    },
+    lock: PTHREAD_MUTEX_INITIALIZER,
+    boostpulse_fd: -1,
+    boostpulse_warned: 0,
 };
