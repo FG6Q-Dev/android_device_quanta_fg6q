@@ -29,6 +29,7 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
+#define NVAVP_BOOST_SCLK_PATH "/sys/devices/platform/host1x/nvavp/boost_sclk"
 #define CPU_MAX_FREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"
 #define IO_IS_BUSY_PATH "/sys/devices/system/cpu/cpufreq/interactive/io_is_busy"
 #define LOW_POWER_MAX_FREQ "918000"
@@ -69,12 +70,11 @@ static int sysfs_write(char *path, char *s)
     return 0;
 }
 
-static void toggle_input(int on)
+static void toggle_input(int on, const char* state)
 {
     int i = 0;
     int ret;
     char path[80];
-    const char* state = (0 == on)?"0":"1";
     
     while(1)
     {
@@ -112,12 +112,15 @@ static void macallan_power_init(struct power_module *module)
 
 static void macallan_power_set_interactive(struct power_module *module, int on)
 {
+    const char* state = (0 == on)?"0":"1";
+    
+    sysfs_write(NVAVP_BOOST_SCLK_PATH, state);
     /*
      * Lower maximum frequency when screen is off.
      */
     sysfs_write(CPU_MAX_FREQ_PATH,(!on || low_power_mode) ? low_power_max_cpu_freq : max_cpu_freq);
-    sysfs_write(IO_IS_BUSY_PATH, on ? "1" : "0");
-    toggle_input(on);
+    sysfs_write(IO_IS_BUSY_PATH, state);
+    toggle_input(on, state);
 }
 
 static void macallan_power_hint(struct power_module *module, power_hint_t hint, void *data)
