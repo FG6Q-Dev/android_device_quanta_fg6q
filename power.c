@@ -29,6 +29,7 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
+#define BOOSTPULSE_PATH "/sys/devices/system/cpu/cpufreq/interactive/boostpulse"
 #define NVAVP_BOOST_SCLK_PATH "/sys/devices/platform/host1x/nvavp/boost_sclk"
 #define CPU_MAX_FREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"
 #define IO_IS_BUSY_PATH "/sys/devices/system/cpu/cpufreq/interactive/io_is_busy"
@@ -97,12 +98,35 @@ static void toggle_input(int on, const char* state)
     }
 }
 
+static int boostpulse_open(struct macallan_power_module *macallan)
+{
+    char buf[80];
+    int len;
+
+    pthread_mutex_lock(&macallan->lock);
+
+    if (macallan->boostpulse_fd < 0) {
+        macallan->boostpulse_fd = open(BOOSTPULSE_PATH, O_WRONLY);
+
+        if (macallan->boostpulse_fd < 0) {
+            if (!macallan->boostpulse_warned) {
+                strerror_r(errno, buf, sizeof(buf));
+                ALOGE("Error opening %s: %s\n", BOOSTPULSE_PATH, buf);
+                macallan->boostpulse_warned = 1;
+            }
+        }
+    }
+
+    pthread_mutex_unlock(&macallan->lock);
+    return macallan->boostpulse_fd;
+}
+
 static void macallan_power_init(struct power_module *module)
 {
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate","20000");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_slack","80000");
-    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time","30000");
-    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq","696000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time","90000");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq","1224000");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load","99");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/target_loads","75 228000:85 696000:90 1530000:95");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay","20000 1530000:50000");
@@ -126,10 +150,21 @@ static void macallan_power_set_interactive(struct power_module *module, int on)
 static void macallan_power_hint(struct power_module *module, power_hint_t hint, void *data)
 {
     struct macallan_power_module *macallan = (struct macallan_power_module *) module;
+    char buf[80];
+    int len;
+    
     switch (hint) {
         case POWER_HINT_VSYNC:
             break;
         case POWER_HINT_INTERACTION:
+            if (boostpulse_open(macallan) >= 0) {
+                len = write(macallan->boostpulse_fd, "1", 1);
+
+                if (len < 0) {
+                    strerror_r(errno, buf, sizeof(buf));
+                    ALOGE("Error writing to %s: %s\n", BOOSTPULSE_PATH, buf);
+                }
+            }
             break;
         case POWER_HINT_LOW_POWER:
             pthread_mutex_lock(&macallan->lock);
