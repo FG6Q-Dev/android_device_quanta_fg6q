@@ -143,11 +143,10 @@ PRODUCT_PACKAGES += \
 # OSS HW Modules
 PRODUCT_PACKAGES += \
     lights.macallan \
-    #power.macallan
+    power.macallan
 
 # Closed Source Modules
 PRODUCT_COPY_FILES += \
-    device/quanta/fg6q/prebuilts/power.macallan.so:system/vendor/lib/hw/power.macallan.so \
     device/quanta/fg6q/prebuilts/camera.tegra.so:system/lib/hw/camera.tegra.so \
     device/quanta/fg6q/prebuilts/libnvmm_camera.so:system/vendor/lib/libnvmm_camera.so \
     device/quanta/fg6q/prebuilts/libnvodm_imager.so:system/vendor/lib/libnvodm_imager.so \
