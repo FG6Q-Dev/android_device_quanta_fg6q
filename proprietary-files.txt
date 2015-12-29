@@ -26,10 +26,6 @@ vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# GPS
-bin/glgps_nvidiaTegra2android
-lib/hw/gps.tegra.so
-
 # Graphics firmware
 etc/firmware/nvavp_aud_ucode.bin
 etc/firmware/nvavp_os_0ff00000.bin

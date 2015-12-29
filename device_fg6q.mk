@@ -155,7 +155,8 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/prebuilts/libinvensense_hal.so:system/lib/libinvensense_hal.so \
     device/quanta/fg6q/prebuilts/libmplmpu.so:system/lib/libmplmpu.so \
     device/quanta/fg6q/prebuilts/libmllite.so:system/lib/libmllite.so \
-
+    device/quanta/fg6q/prebuilts/gps.tegra.so:system/lib/hw/gps.tegra.so \
+    device/quanta/fg6q/prebuilts/glgps_nvidiaTegra2android:system/bin/glgps_nvidiaTegra2android
 
 $(call inherit-product, build/target/product/full.mk)
 
