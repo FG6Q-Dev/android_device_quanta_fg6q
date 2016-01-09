@@ -37,10 +37,15 @@ BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_SOURCE := kernel/quanta/fg6q
 TARGET_KERNEL_CONFIG := cyanogenmod_fg6q_defconfig
 
+# Use dlmalloc
+MALLOC_IMPL := dlmalloc
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
+
 # Video
 BOARD_EGL_CFG := device/quanta/fg6q/egl.cfg
 USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 VSYNC_EVENT_PHASE_OFFSET_NS := 0
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1
 
