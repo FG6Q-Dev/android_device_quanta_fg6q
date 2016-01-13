@@ -10,9 +10,6 @@ COMMON_GLOBAL_CFLAGS += \
     -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
     -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
-# inherit from the proprietary version
--include vendor/quanta/fg6q/BoardConfigVendor.mk
-
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi-v7a
@@ -98,3 +95,10 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/bcm43241/fw_bcmdhd.bin"
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/quanta/fg6q/bluetooth
+
+# CM Hardware
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS := device/quanta/fg6q/cmhw/
+
+# inherit from the proprietary version
+-include vendor/quanta/fg6q/BoardConfigVendor.mk

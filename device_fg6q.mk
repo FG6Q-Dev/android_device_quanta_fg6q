@@ -1,29 +1,21 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-$(call inherit-product-if-exists, vendor/quanta/fg6q/fg6q-vendor.mk)
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 
 # Root
 PRODUCT_COPY_FILES += \
-	device/quanta/fg6q/fstab.macallan:root/fstab.macallan \
-	device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc
+    device/quanta/fg6q/fstab.macallan:root/fstab.macallan \
+    device/quanta/fg6q/ueventd.macallan.rc:root/ueventd.macallan.rc
 
 # Init
 PRODUCT_COPY_FILES += \
-	device/quanta/fg6q/init/init.hdcp.rc:root/init.hdcp.rc \
-	device/quanta/fg6q/init/init.macallan.rc:root/init.macallan.rc \
-	device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
-	device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
+    device/quanta/fg6q/init/init.hdcp.rc:root/init.hdcp.rc \
+    device/quanta/fg6q/init/init.macallan.rc:root/init.macallan.rc \
+    device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
+    device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
 
 # Charger
 PRODUCT_COPY_FILES += \
-	device/quanta/fg6q/charger/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png \
-	device/quanta/fg6q/charger/res/images/charger/battery_scale.png:root/res/images/charger/battery_scale.png
+    device/quanta/fg6q/charger/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png \
+    device/quanta/fg6q/charger/res/images/charger/battery_scale.png:root/res/images/charger/battery_scale.png
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -158,13 +150,11 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/prebuilts/gps.tegra.so:system/lib/hw/gps.tegra.so \
     device/quanta/fg6q/prebuilts/glgps_nvidiaTegra2android:system/bin/glgps_nvidiaTegra2android
 
-$(call inherit-product, build/target/product/full.mk)
-
 PRODUCT_CHARACTERISTICS := tablet
-
 PRODUCT_AAPT_CONFIG := xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_fg6q
-PRODUCT_DEVICE := fg6q
+# setup dalvik vm configs.
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, vendor/quanta/fg6q/fg6q-vendor.mk)
