@@ -1,8 +1,8 @@
 # Graphic
-persist.tegra.nvmmlite = 1
+persist.tegra.nvmmlite=1
 ro.opengles.version=131072
-ro.sf.override_null_lcd_density = 1
-ro.sf.lcd_density = 320 
+ro.sf.override_null_lcd_density=1
+ro.sf.lcd_density=320
 
 # don't preload OpenGL in Zygote, the Tegra drivers do not like it
 ro.zygote.disable_gl_preload=true
