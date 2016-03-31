@@ -117,3 +117,5 @@ noisecaloffset5g=14
 muxenab=0x10
 #Regulatory domain
 
+ccode=EU
+regrev=0

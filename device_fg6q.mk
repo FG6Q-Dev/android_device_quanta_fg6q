@@ -41,26 +41,12 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/quanta/fg6q/wifi/nvram_4329.txt:system/etc/nvram_4329.txt \
-    device/quanta/fg6q/wifi/nvram_4330.txt:system/etc/nvram_4330.txt \
     device/quanta/fg6q/wifi/nvram_43241.txt:system/etc/nvram_43241.txt \
-    device/quanta/fg6q/wifi/nvram_43241_SP.txt:system/etc/nvram_43241_SP.txt \
-    device/quanta/fg6q/wifi/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/quanta/fg6q/wifi/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     device/quanta/fg6q/wifi/bcm43241.hcd:system/etc/firmware/bcm43241.hcd \
-    device/quanta/fg6q/wifi/firmware/bcm4330/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_mfg.bin \
-    device/quanta/fg6q/wifi/firmware/bcm4330/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_mfg.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_apsta.bin \
     device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd.bin:system/vendor/firmware/bcm43241/fw_bcmdhd.bin \
-    device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin \
-    device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd_mfg.bin \
-    device/quanta/fg6q/wifi/firmware/bcm43241_SP/fw_bcmdhd.bin:system/vendor/firmware/bcm43241_SP/fw_bcmdhd.bin \
-    device/quanta/fg6q/wifi/wifi_loader.sh:system/bin/wifi_loader.sh \
-    device/quanta/fg6q/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/quanta/fg6q/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    device/quanta/fg6q/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-
+    device/quanta/fg6q/wifi/firmware/bcm43241/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_p2p.bin
 
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -158,3 +144,5 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/quanta/fg6q/fg6q-vendor.mk)
+
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
