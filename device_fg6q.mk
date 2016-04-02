@@ -10,7 +10,7 @@ PRODUCT_COPY_FILES += \
     device/quanta/fg6q/init/init.hdcp.rc:root/init.hdcp.rc \
     device/quanta/fg6q/init/init.macallan.rc:root/init.macallan.rc \
     device/quanta/fg6q/init/init.macallan.usb.rc:root/init.macallan.usb.rc \
-    device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc 
+    device/quanta/fg6q/init/init.tf.rc:root/init.tf.rc
 
 # Charger
 PRODUCT_COPY_FILES += \
