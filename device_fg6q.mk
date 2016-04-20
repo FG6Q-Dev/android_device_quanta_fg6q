@@ -123,6 +123,11 @@ PRODUCT_PACKAGES += \
     lights.macallan \
     power.macallan
 
+# libshims
+PRODUCT_PACKAGES += \
+    libshim_camera \
+    libshim_nvaudio
+
 # Closed Source Modules
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/prebuilts/camera.tegra.so:system/lib/hw/camera.tegra.so \
