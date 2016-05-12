@@ -4,12 +4,6 @@ DEVICE_PACKAGE_OVERLAYS += device/quanta/fg6q/overlay
 # by BoardConfigVendor.mk
 BOARD_USES_GENERIC_AUDIO := false
 
-# defines to support legacy blobs
-COMMON_GLOBAL_CFLAGS += \
-    -DNEEDS_VECTORIMPL_SYMBOLS \
-    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
-    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
-
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi-v7a
