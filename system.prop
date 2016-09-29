@@ -41,3 +41,4 @@ drm.service.enabled=true
 
 # Other
 tf.enable=y
+lockscreen.rot_override=true

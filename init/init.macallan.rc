@@ -19,12 +19,6 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
-    # make the pathes for the external media mounts
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk 0700 root root
-
 on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
     setprop ro.crypto.umount_sd false
@@ -344,14 +338,6 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 # create virtual SD card at /mnt/sdcard, based on the /data/media directory
 # deamon will drop to user/group system/media_rw after initializing
 # underlying files in /data/media wil be created with user and group media_rw (1023)
-
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
-    class late_start
-    disabled
 
 service hostapd_bin  /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
     socket wpa_wlan1 dgram 660 wifi wifi
