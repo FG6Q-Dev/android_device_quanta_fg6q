@@ -181,6 +181,8 @@ on boot
     chown system system /sys/class/input/input2/enabled
     chown system system /sys/class/input/input3/enabled
     chown system system /sys/class/input/input4/enabled
+    chown system system /sys/class/input/input5/enabled
+    chown system system /sys/class/input/input6/enabled
     chown system system /sys/class/vibration/vibrator/enable
 
     chown system system /sys/kernel/tegra_cap/cbus_cap_level
