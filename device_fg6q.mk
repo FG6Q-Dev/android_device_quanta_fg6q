@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
 # libshims
 PRODUCT_PACKAGES += \
     libshim_camera \
-    libshim_nvaudio
+    libshim_nvaudio \
+    libgps
 
 # Closed Source Modules
 PRODUCT_COPY_FILES += \
