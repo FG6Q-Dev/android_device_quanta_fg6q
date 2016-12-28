@@ -1,2 +1,3 @@
+add_lunch_combo omni_fg6q-eng
 add_lunch_combo cm_fg6q-eng
 add_lunch_combo cm_fg6q-userdebug

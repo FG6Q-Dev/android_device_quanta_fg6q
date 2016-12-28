@@ -53,7 +53,6 @@ ifeq ($(TARGET_BUILD_VARIANT), eng)
     TARGET_KERNEL_CONFIG := recovery_fg6q_defconfig
     RECOVERY_VARIANT := twrp
 endif
-DEVICE_RESOLUTION := 2560x1600
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
@@ -62,6 +61,7 @@ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_EXCLUDE_SUPERSU := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/pwm-backlight/brightness"
+TW_THEME := landscape_hdpi
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
