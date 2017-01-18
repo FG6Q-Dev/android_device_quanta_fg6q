@@ -26,7 +26,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 #Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/quanta/fg6q
-TARGET_KERNEL_CONFIG := cyanogenmod_fg6q_defconfig
+TARGET_KERNEL_CONFIG := fg6q_defconfig
 
 # Use dlmalloc
 MALLOC_IMPL := dlmalloc
