@@ -20,7 +20,7 @@ ifneq ($(TARGET_SIMULATOR),true)
 
 # HAL module implemenation, not prelinked and stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
 LOCAL_SRC_FILES := sensors.cpp
@@ -44,9 +44,9 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE := sensors.tegratab
 
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.base
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
@@ -62,9 +62,9 @@ LOCAL_SHARED_LIBRARIES := liblog libdl libcutils libutils
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_NVIDIA_NO_WARNINGS_AS_ERRORS := 1
 LOCAL_PRELINK_MODULE := false
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.nvs_input
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
@@ -73,9 +73,9 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES := liblog libsensors.base
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_PRELINK_MODULE := false
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.mpl
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
@@ -94,9 +94,9 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libdl libsensors.base \
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_NVIDIA_NO_WARNINGS_AS_ERRORS := 1
 LOCAL_PRELINK_MODULE := false
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.cm3218
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
@@ -105,9 +105,9 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES := liblog libsensors.base
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_PRELINK_MODULE := false
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.hwmon
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
@@ -116,7 +116,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES := liblog libsensors.base
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_PRELINK_MODULE := false
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
 subdir_makefiles := \
 	$(LOCAL_PATH)/mlsdk/Android.mk

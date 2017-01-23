@@ -16,7 +16,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(TARGET_SIMULATOR),true)
 
-include $(NVIDIA_DEFAULTS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := libmllite
 
 LOCAL_MODULE_TAGS := optional
@@ -34,7 +34,7 @@ LOCAL_PRELINK_MODULE := false
 
 #TODO: Remove following lines before include statement and fix the source giving warnings/errors
 LOCAL_NVIDIA_NO_WARNINGS_AS_ERRORS := 1
-include $(NVIDIA_SHARED_LIBRARY)
+include $(BUILD_SHARED_LIBRARY)
 
 endif # !TARGET_SIMULATOR
 
