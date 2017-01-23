@@ -5,9 +5,18 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-     libcamera_shim.c
+    gui/SensorManager.cpp \
+    utils/Looper.cpp
 
-LOCAL_SHARED_LIBRARIES := libutils libgui libshim_sensors
+LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/include
+
+LOCAL_SHARED_LIBRARIES := \
+    libgui \
+    liblog \
+    libbinder \
+    libutils \
+    libshim_sensors
 
 LOCAL_MODULE := libshim_camera
 LOCAL_MODULE_TAGS := optional
@@ -32,11 +41,15 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-     SharedBuffer.cpp \
-     VectorImpl.cpp
+     utils/VectorImpl.cpp
 
-LOCAL_C_INCLUDES += external/safe-iop/include
-LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/include \
+    external/safe-iop/include
+
+LOCAL_SHARED_LIBRARIES := \
+    liblog \
+    libutils
 
 LOCAL_MODULE := libshim_sensors
 LOCAL_MODULE_TAGS := optional
@@ -50,7 +63,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
      libgps.c
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils libshim_sensors
+LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils
 
 LOCAL_MODULE := libgps
 LOCAL_MODULE_TAGS := optional
