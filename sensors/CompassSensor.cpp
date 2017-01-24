@@ -17,6 +17,7 @@
 
 #define LOG_NDEBUG 0
 
+#include <string.h>
 #include <cutils/log.h>
 
 #include "CompassSensor.h"
