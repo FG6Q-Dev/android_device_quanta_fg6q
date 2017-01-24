@@ -157,7 +157,7 @@ private:
                     read(fd, name, sizeof(name));
                     close(fd);
                     if (!strncmp(name, dev_name, strlen(dev_name))) {
-                        LOGI("%s %s %s found", __func__, path, dev_name);
+                        ALOGI("%s %s %s found", __func__, path, dev_name);
                         err = atoi(dir_entry->d_name + 5);
                         break;
                     }

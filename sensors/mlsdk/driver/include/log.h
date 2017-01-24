@@ -51,6 +51,8 @@
 #include <linux/kernel.h>
 #endif
 
+#define LOG ALOG
+
 #ifdef __cplusplus
 extern "C" {
 #endif

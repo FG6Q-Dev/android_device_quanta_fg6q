@@ -225,7 +225,7 @@ int NvsInput::readEvents(sensors_event_t* data, int count)
             count--;
             numEventReceived++;
         } else {
-            LOGE("%s %s unknown event->type %d\n",
+            ALOGE("%s %s unknown event->type %d\n",
                  __func__, data_name, event->type);
         }
         mInputReader.next();
