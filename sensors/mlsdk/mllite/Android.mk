@@ -26,7 +26,7 @@ LOCAL_CFLAGS += -DLINUX
 
 LOCAL_SRC_FILES := $(call all-c-files-under)
 
-LOCAL_C_INCLUDES := device/nvidia/drivers/sensors/mlsdk/driver/include
+LOCAL_C_INCLUDES := $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include
 
 LOCAL_SHARED_LIBRARIES := liblog
 

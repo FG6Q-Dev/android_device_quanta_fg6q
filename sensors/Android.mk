@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Platform path
+PLATFORM_COMMON_PATH := device/quanta/fg6q
 
 LOCAL_PATH:= $(call my-dir)
 
@@ -26,13 +28,13 @@ LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
 LOCAL_SRC_FILES := sensors.cpp
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/HAL/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mpl
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/HAL/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mpl
 LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libdl libsensors.base \
                           libinvensense_hal libsensors.mpl \
                           libsensors.cm3218 libsensors.nvs_input
@@ -51,12 +53,12 @@ LOCAL_MODULE := libsensors.base
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
 LOCAL_SRC_FILES := SensorBase.cpp SensorUtil.cpp InputEventReader.cpp
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/HAL/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mpl
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/HAL/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mpl
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES := liblog libdl libcutils libutils
 LOCAL_CPPFLAGS+=-DLINUX=1
@@ -81,12 +83,12 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
 LOCAL_CFLAGS += -DINVENSENSE_COMPASS_CAL
 LOCAL_CFLAGS += -std=gnu++0x
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/driver/include/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/HAL/include
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite/linux
-LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mpl
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/driver/include/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/HAL/include
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mllite/linux
+LOCAL_C_INCLUDES += $(PLATFORM_COMMON_PATH)/sensors/mlsdk/mpl
 LOCAL_SRC_FILES := MPLSensor.cpp MPLSupport.cpp CompassSensor.cpp
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libdl libsensors.base \
