@@ -18,7 +18,7 @@
 #include <dirent.h>
 #include <stdlib.h>
 
-#include "cm3217.h"
+#include "cm3218.h"
 #include "MPLSensor.h"
 #include "MPLSensorDefs.h"
 #include "CompassSensor.h"
@@ -35,7 +35,7 @@ static const struct sensor_t sSensorList[] = {
       MPLACCEL_DEF,
       MPLMAGNETICFIELD_DEF,
       MPLORIENTATION_DEF,
-      CM3217LIGHT_DEF,
+      CM3218LIGHT_DEF,
 };
 
 /*****************************************************************************/
@@ -273,7 +273,7 @@ sensors_poll_context_t::sensors_poll_context_t()
         mPollFds[compass].revents = 0;
     }
 
-    mSensors[light] = new Cm3217Light();
+    mSensors[light] = new Cm3218Light();
     mPollFds[light].fd = mSensors[light]->getFd();
     mPollFds[light].events = POLLIN;
     mPollFds[light].revents = 0;

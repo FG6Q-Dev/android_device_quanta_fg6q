@@ -35,7 +35,7 @@ LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mllite/linux
 LOCAL_C_INCLUDES += device/nvidia/drivers/sensors/mlsdk/mpl
 LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libdl libsensors.base \
                           libinvensense_hal libsensors.mpl \
-                          libsensors.cm3217 libsensors.nvs_input
+                          libsensors.cm3218 libsensors.nvs_input
 LOCAL_CPPFLAGS+=-DLINUX=1
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
