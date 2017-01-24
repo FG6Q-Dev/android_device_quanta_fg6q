@@ -28,55 +28,55 @@
     "Invensense",                                       \
     1, ID_RV,                                           \
     SENSOR_TYPE_ROTATION_VECTOR, 10240.0f, 1.0f,        \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLLINEARACCEL_DEF {                            \
     "MPL linear accel",                                 \
     "Invensense",                                       \
     1, ID_LA,                                           \
     SENSOR_TYPE_LINEAR_ACCELERATION, 10240.0f, 1.0f,    \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLGRAVITY_DEF {                                \
     "MPL gravity",                                      \
     "Invensense",                                       \
     1, ID_GR,                                           \
     SENSOR_TYPE_GRAVITY, 10240.0f, 1.0f,                \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLGYRO_DEF {                                   \
     "MPL Gyro",                                         \
     "Invensense",                                       \
     1, ID_GY,                                           \
     SENSOR_TYPE_GYROSCOPE, 10240.0f, 1.0f,              \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLACCEL_DEF {                                  \
     "MPL accel",                                        \
     "Invensense",                                       \
     1, ID_A,                                            \
     SENSOR_TYPE_ACCELEROMETER, 10240.0f, 1.0f,          \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLMAGNETICFIELD_DEF {                          \
     "MPL magnetic field",                               \
     "Invensense",                                       \
     1, ID_M,                                            \
     SENSOR_TYPE_MAGNETIC_FIELD, 10240.0f, 1.0f,         \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLORIENTATION_DEF {                            \
     "MPL Orientation",                                  \
     "Invensense",                                       \
     1, ID_O,                                            \
     SENSOR_TYPE_ORIENTATION, 360.0f, 1.0f,              \
-    9.7f, 20000,{ } }
+    9.7f, 20000, 0, 0, 0, 0, 0, 0, { } }
 
 #define MPLPRESSURE_DEF {                               \
     "MPL Pressure   ",                                  \
     "Invensense",                                       \
     1, ID_AP,                                           \
     SENSOR_TYPE_PRESSURE, 110000.0f, 1.0f,              \
-    0.032f, 25500,{ } }
+    0.032f, 25500, 0, 0, 0, 0, 0, 0, { } }
 
 #endif

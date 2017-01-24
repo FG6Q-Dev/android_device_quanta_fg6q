@@ -36,7 +36,7 @@
     "Capella Microsystems",                   \
     1, ID_L,                                  \
     SENSOR_TYPE_LIGHT, 10240.0f, 1.0f,        \
-    0.5f, 0, { } }
+    0.5f, 0, 0, 0, 0, 0, 0, 0,  { } }
 
 struct input_event;
 
