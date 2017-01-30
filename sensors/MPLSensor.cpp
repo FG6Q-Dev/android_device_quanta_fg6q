@@ -140,6 +140,7 @@ MPLSensor::MPLSensor(CompassSensor *compass)
     mForceSleep = false;
     /* setup sysfs paths */
     inv_init_sysfs_attributes();
+    onPower(1);
     /* turn off devices to get sensor_t parameters according to
      * NVS API (see nvs_input.cpp)
      */
@@ -711,6 +712,34 @@ int MPLSensor::setAccelInitialState()
         //mHasPendingEvent = true;
     }
     return 0;
+}
+
+int MPLSensor::onPower(int en)
+{
+    VFUNC_LOG;
+
+    int res;
+
+    int curr_power_state;
+
+    ALOGV_IF(SYSFS_VERBOSE, "HAL:sysfs:echo %d > %s (%lld)",
+            en, mpu.power_state, getTimestamp());
+    res = read_sysfs_int(mpu.power_state, &curr_power_state);
+    if (res < 0) {
+        ALOGE("HAL:Error reading power state");
+        // will set power_state anyway
+        curr_power_state = -1;
+    }
+    if (en != curr_power_state) {
+        if((res = write_sysfs_int(mpu.power_state, en)) < 0) {
+                ALOGE("HAL:Couldn't write power state");
+        }
+    } else {
+        ALOGV_IF(EXTRA_VERBOSE,
+                "HAL:Power state already enable/disable curr=%d new=%d",
+                curr_power_state, en);
+    }
+    return res;
 }
 
 int MPLSensor::masterEnable(int en)
@@ -1991,6 +2020,7 @@ int MPLSensor::inv_init_sysfs_attributes(void)
     sprintf(mpu.chip_enable, "%s%s", sysfs_path, "/enable");
     sprintf(mpu.dmp_firmware, "%s%s", sysfs_path,"/dmp_firmware");
     sprintf(mpu.firmware_loaded,"%s%s", sysfs_path, "/firmware_loaded");
+    sprintf(mpu.power_state, "%s%s", sysfs_path, "/power_state");
     sprintf(mpu.tap_on, "%s%s", sysfs_path, "/tap_on");
     sprintf(mpu.key, "%s%s", sysfs_path, "/key");
     sprintf(mpu.self_test, "%s%s", sysfs_path, "/self_test");

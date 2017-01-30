@@ -110,3 +110,57 @@ int write_attribute_sensor(int fd, long data)
 
     return num_b;
 }
+
+int read_sysfs_int(char *filename, int *var)
+{
+    int res=0;
+    FILE  *sysfsfp;
+
+    sysfsfp = fopen(filename, "r");
+    if (sysfsfp != NULL) {
+        if (fscanf(sysfsfp, "%d\n", var) < 1) {
+           ALOGE("HAL:ERR failed to read an int from %s.", filename);
+           res = -EINVAL;
+        }
+        fclose(sysfsfp);
+    } else {
+        res = -errno;
+        ALOGE("HAL:ERR open file %s to read with error %d", filename, res);
+    }
+    return res;
+}
+
+int write_sysfs_int(char *filename, int var)
+{
+    int res = 0;
+    FILE  *sysfsfp;
+
+    ALOGV_IF(SYSFS_VERBOSE, "HAL:sysfs:echo %d > %s (%lld)",
+          var, filename, getTimestamp());
+    sysfsfp = fopen(filename, "w");
+    if (sysfsfp == NULL) {
+        res = -errno;
+        ALOGE("HAL:ERR open file %s to write with error %d", filename, res);
+        return res;
+    }
+    int fpres, fcres = 0;
+    fpres = fprintf(sysfsfp, "%d\n", var);
+    /* fprintf() can succeed because it never actually writes to the
+     * underlying sysfs node.
+     */
+    if (fpres < 0) {
+       res = -errno;
+       fclose(sysfsfp);
+    } else {
+        fcres = fclose(sysfsfp);
+        /* Check for errors from: fflush(), write(), and close() */
+        if (fcres < 0) {
+            res = -errno;
+        }
+    }
+    if (fpres < 0 || fcres < 0) {
+        ALOGE("HAL:ERR failed to write %d to %s (err=%d) print/close=%d/%d",
+            var, filename, res, fpres, fcres);
+    }
+    return res;
+}

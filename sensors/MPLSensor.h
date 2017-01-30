@@ -237,6 +237,7 @@ protected:
 
     struct sysfs_attrbs {
        char *chip_enable;
+       char *power_state;
        char *dmp_firmware;
        char *firmware_loaded;
        char *tap_on;
