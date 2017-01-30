@@ -4,7 +4,7 @@
 
 #define MPU_SYSFS_ABS_PATH "/sys/class/invensense/mpu"
 
-#define CHIP_NUM 4
+#define CHIP_NUM 5
 enum PROC_SYSFS_CMD {
 	CMD_GET_SYSFS_PATH,
 	CMD_GET_DMP_PATH,
@@ -12,7 +12,7 @@ enum PROC_SYSFS_CMD {
 	CMD_GET_SYSFS_KEY
 };
 static char sysfs_path[100];
-static char *chip_name[CHIP_NUM] = {"ITG3500", "MPU6050", "MPU9150", "MPU3050"};
+static char *chip_name[CHIP_NUM] = {"ITG3500", "MPU6050", "MPU9150", "MPU3050", "MPU6500"};
 static int chip_ind;
 static int initialized =0;
 static int status = 0;

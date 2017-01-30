@@ -160,6 +160,8 @@ MPLSensor::MPLSensor(CompassSensor *compass)
             mIntegratedAccel = true;
         else if (!strncmp(chip_ID, "MPU9250", strlen("MPU9250")))
             mIntegratedAccel = true;
+        else if (!strncmp(chip_ID, "MPU6500", strlen("MPU6500")))
+            mIntegratedAccel = true;
         else
             mIntegratedAccel = false;
     }
