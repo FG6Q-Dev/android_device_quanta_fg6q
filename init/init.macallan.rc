@@ -13,7 +13,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on init
-    export LD_SHIM_LIBS "/system/vendor/lib/libnvaudiofx.so|libshim_nvaudio.so:/system/lib/libnvoice.so|libshim_nvaudio.so:/system/lib/hw/sensors.macallan.so|libshim_sensors.so:/system/lib/hw/camera.tegra.so|libshim_camera.so"
+    export LD_SHIM_LIBS "/system/vendor/lib/libnvaudiofx.so|libshim_nvaudio.so:/system/lib/libnvoice.so|libshim_nvaudio.so:/system/lib/libinvensense_hal.so|libshim_sensors.so:/system/lib/hw/camera.tegra.so|libshim_camera.so"
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
