@@ -5,6 +5,8 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     SensorWrapper.cpp
 
+LOCAL_C_INCLUDES += $(LOCAL_PATH)
+
 LOCAL_SHARED_LIBRARIES := \
     libhardware liblog
 

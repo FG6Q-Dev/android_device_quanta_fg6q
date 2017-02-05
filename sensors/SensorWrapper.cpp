@@ -31,6 +31,8 @@
 #include <hardware/hardware.h>
 #include <hardware/sensors.h>
 
+#include "SensorWrapper.h"
+
 typedef struct {
     sensors_poll_device_t base;
     union {
@@ -45,6 +47,17 @@ static union {
     const sensors_module_t *module;
     const hw_module_t *hw_module;
 } vendor;
+
+static const struct sensor_t sSensorList[] = {
+      MPLROTATIONVECTOR_DEF,
+      MPLLINEARACCEL_DEF,
+      MPLGRAVITY_DEF,
+      MPLGYRO_DEF,
+      MPLACCEL_DEF,
+      MPLMAGNETICFIELD_DEF,
+      MPLORIENTATION_DEF,
+      CM3218LIGHT_DEF,
+};
 
 static bool ensure_vendor_module_is_loaded(void)
 {
@@ -126,7 +139,8 @@ static int device_open(const hw_module_t *module, const char *name, hw_device_t 
 }
 
 static int sensors__get_sensors_list(struct sensors_module_t* module, struct sensor_t const** list){
-    return vendor.module->get_sensors_list(module, list);
+    *list = sSensorList;
+    return ARRAY_SIZE(sSensorList);
 }
 
 static struct hw_module_methods_t sensors_module_methods = {
