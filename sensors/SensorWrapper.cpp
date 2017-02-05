@@ -138,7 +138,23 @@ static int device_open(const hw_module_t *module, const char *name, hw_device_t 
     return 0;
 }
 
+static void printAll(struct sensors_module_t* module){
+    sensor_t const* list;
+    ssize_t count = vendor.module->get_sensors_list(module, &list);
+    ALOGI("Showing struct for %d sensors:\n",count);
+    for (size_t i=0 ; i<size_t(count) ; i++) {
+        ALOGI("{ %s , %s , %d , %d , &d , %f, %f, %f, %d }\n",
+            list[i].name,list[i].vendor,list[i].version,list[i].handle,list[i].type,list[i].maxRange,
+            list[i].resolution,list[i].power,list[i].minDelay);
+        /**ALOGI("{ %s , %s , %d , %d , &d , %f, %f, %f, %d , %d , %d , %s , %s , %d , %d }",
+            list[i].name,list[i].vendor,list[i].version,list[i].handle,list[i].type,list[i].maxRange,
+            list[i].resolution,list[i].power,list[i].minDelay,list[i].fifoReservedEventCount,
+            list[i].fifoMaxEventCount,list[i].stringType,list[i].requiredPermission,list[i].maxDelay,list[i].flags);**/
+    }
+}
+
 static int sensors__get_sensors_list(struct sensors_module_t* module, struct sensor_t const** list){
+    //printAll(module);
     *list = sSensorList;
     return ARRAY_SIZE(sSensorList);
 }
