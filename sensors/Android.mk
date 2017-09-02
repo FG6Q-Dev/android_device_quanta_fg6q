@@ -37,7 +37,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_MODULE := sensors.tegratab
+LOCAL_MODULE := sensors.macallan
 
 include $(BUILD_SHARED_LIBRARY)
 
