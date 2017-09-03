@@ -1,10 +1,4 @@
 #Updatedt with vendor paths
-# Audio
-lib/hw/audio.primary.tegra.so
-lib/libnvoice.so
-lib/libtinyalsa.so
-vendor/lib/libnvaudiofx.so
-vendor/lib/libnvaudioservice.so
 
 #Camera
 lib/libopencv24_tegra.so

@@ -38,8 +38,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/quanta/fg6q/audio/asound.conf:system/etc/asound.conf \
     device/quanta/fg6q/audio/audioConfig_qvoice_icera_pc400.xml:system/etc/audioConfig_qvoice_icera_pc400.xml \
-    device/quanta/fg6q/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/quanta/fg6q/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     device/quanta/fg6q/audio/firmware/es305_fw.bin:system/vendor/firmware/es305_fw.bin
 
 # Wifi
@@ -112,8 +110,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
-    audio.r_submix.default \
-    libaudioutils
+    audio.r_submix.default
+
+PRODUCT_COPY_FILES += \
+    device/quanta/fg6q/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    device/quanta/fg6q/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -124,7 +125,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.macallan \
     power.macallan \
-    sensors.macallan
+    sensors.macallan \
+    audio.primary.macallan
 
 # libshims
 PRODUCT_PACKAGES += \
